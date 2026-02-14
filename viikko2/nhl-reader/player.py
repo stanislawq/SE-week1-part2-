@@ -5,8 +5,13 @@ class Player:
         self.assists = dict['assists']
         self.goals = dict['goals']
         self.team = dict['team']
+        #not used, but good to have
         self.games = dict['games']
         self.id = dict['id']
 
+    @property
+    def points(self):
+        return self.goals + self.assists
+
     def __str__(self):
-        return f"{self.name:20} team {self.team:3} goals {self.goals:2} assists {self.assists:2}"
+        return f"{self.name:20} {self.team} {self.goals} + {self.assists} = {self.points}"
