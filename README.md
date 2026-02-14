@@ -1,3 +1,3 @@
-# ohtu-submission
+# SE-weel1-part2
 
-https://github.com/stanislawq/ohtuvarasto
+https://github.com/stanislawq/SE-week1
