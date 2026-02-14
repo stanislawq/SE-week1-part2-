@@ -1,3 +1,6 @@
+"""
+Main application module.
+"""
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
@@ -6,27 +9,42 @@ from player_stats import PlayerStats
 
 
 def main():
+    """
+    Main entry point of the application.
+    """
     console = Console()
     console.print("NHL statistics by nationality", style="bold white")
 
-    seasons = ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2025-26"]
+    seasons = [
+        "2018-19", "2019-20", "2020-21", "2021-22",
+        "2022-23", "2023-24", "2024-25", "2025-26"
+    ]
 
-    season = Prompt.ask(
-        f"Season [bold cyan][[/bold cyan][bold magenta]{'/'.join(seasons)}[/bold magenta][bold cyan]][/bold cyan]",
-        default="2024-25"
+    season_prompt = (
+        f"Season [bold cyan][[/bold cyan][bold magenta]"
+        f"{'/'.join(seasons)}"
+        f"[/bold magenta][bold cyan]][/bold cyan]"
     )
+    season = Prompt.ask(season_prompt, default="2024-25")
 
     url = f"https://studies.cs.helsinki.fi/nhlstats/{season}/players"
     reader = PlayerReader(url)
     stats = PlayerStats(reader)
 
-    countries = ["USA", "FIN", "CAN", "SWE", "CZE", "RUS", "SLO", "FRA", "GBR", "SVK", "DEN", "NED", "AUT", "BLR",
-                 "GER", "SUI", "NOR", "UZB", "LAT", "AUS"]
+    countries = [
+        "USA", "FIN", "CAN", "SWE", "CZE", "RUS", "SLO", "FRA",
+        "GBR", "SVK", "DEN", "NED", "AUT", "BLR", "GER", "SUI",
+        "NOR", "UZB", "LAT", "AUS"
+    ]
 
     while True:
-        nationality = Prompt.ask(
-            f"Nationality [bold cyan][[/bold cyan][bold magenta]{'/'.join(countries)}[/bold magenta][bold cyan]][/bold cyan] [bold cyan]()[/bold cyan]"
+        country_prompt = (
+            f"Nationality [bold cyan][[/bold cyan][bold magenta]"
+            f"{'/'.join(countries)}"
+            f"[/bold magenta][bold cyan]][/bold cyan] "
+            f"[bold cyan]()[/bold cyan]"
         )
+        nationality = Prompt.ask(country_prompt)
 
         if not nationality:
             break
