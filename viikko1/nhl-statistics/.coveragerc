@@ -1,0 +1,6 @@
+[run]
+source = .
+omit = 
+    src/tests/*
+    src/index.py
+    src/player_reader.py

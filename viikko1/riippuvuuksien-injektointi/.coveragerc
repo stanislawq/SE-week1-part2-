@@ -1,0 +1,5 @@
+[run]
+source = .
+omit = 
+    *_test.py
+    konsoli_io.py
