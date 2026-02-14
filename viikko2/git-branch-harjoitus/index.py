@@ -1,14 +1,15 @@
-# Added imports at the beginning
 from logger import logger
 from summa import summa
 from erotus import erotus
+from tulo import tulo
 
-logger("aloitetaan")
+logger("aloitetaan ohjelma")
 
 x = int(input("luku 1: "))
 y = int(input("luku 2: "))
-print(f"The sum of {x} and {y} is {summa(x, y)}") # change in bugfix
-print(f"The difference between {x} and {y} is {erotus(x, y)}") # change in bugfix
+print(f"{x} + {y} = {summa(x, y)}") 
+print(f"{x} - {y} = {erotus(x, y)}") 
+print(f"{x} * {y} = {tulo(x, y)}") 
 
 logger("lopetetaan")
-print("goodbye!") # added in bugfix branch
+print("goodbye!")
