@@ -9,3 +9,8 @@ htmlcov/
 .coverage.*
 *.xml
 dist/
+log.html
+report.html
+output.xml
+selenium-screenshot-*.png
+.idea/
