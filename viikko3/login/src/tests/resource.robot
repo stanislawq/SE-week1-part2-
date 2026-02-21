@@ -42,3 +42,11 @@ Go To Starting Page
 
 Register Page Should Be Open
     Title Should Be  Register
+
+Set Username
+    [Arguments]  ${username}
+    Input Text  username  ${username}
+
+Set Password
+    [Arguments]  ${password}
+    Input Password  password  ${password}

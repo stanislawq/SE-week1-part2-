@@ -1,8 +1,8 @@
 *** Settings ***
 Resource  resource.robot
-Suite Setup     Open And Configure Browser
+Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup      Reset Application Create User And Go To Login Page
+Test Setup  Reset Application Create User And Go To Login Page
 
 *** Test Cases ***
 Login With Correct Credentials
@@ -16,7 +16,7 @@ Login With Incorrect Password
     Set Password  kalle456
     Click Button  Login
     Login Should Fail With Message  Invalid username or password
-	
+
 Login With Nonexistent Username
     Set Username  kalle123
     Set Password  kalle123
@@ -32,15 +32,6 @@ Login Should Fail With Message
     Login Page Should Be Open
     Page Should Contain  ${message}
 
-Set Username
-    [Arguments]  ${username}
-    Input Text  username  ${username}
-
-Set Password
-    [Arguments]  ${password}
-    Input Password  password  ${password}
-
-*** Keywords ***
 Reset Application Create User And Go To Login Page
     Reset Application
     Create User  kalle  kalle123
